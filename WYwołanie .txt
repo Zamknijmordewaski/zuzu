@@ -1,0 +1,38 @@
+return (
+  <Card className="w-full max-w-md mx-auto mt-10">
+    <CardHeader>
+      <CardTitle className="text-2xl font-bold">Zmień Pasmo Wi-Fi</CardTitle>
+      <CardDescription>Wybierz pasmo Wi-Fi.</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="band">Pasmo Wi-Fi</Label>
+          <select
+            id="band"
+            value={band}
+            onChange={(e) => setBand(e.target.value)}
+            className="w-full px-3 py-2 border rounded bg-white text-gray-900 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="2.4GHz">2.4GHz</option>
+            <option value="5GHz">5GHz</option>
+          </select>
+        </div>
+        <Button onClick={handleSubmit}>
+          Zmień Pasmo
+        </Button>
+        <Button onClick={downloadCode} variant="outline">
+          Pobierz Kod
+        </Button>
+        {message && (
+          <div className={`${message.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} p-2 rounded`}>
+            {message.text}
+          </div>
+        )}
+      </div>
+    </CardContent>
+    <CardFooter className="mt-4">
+      <CardTitle className="text-lg font-bold">Przykładowy Kod w Pythonie</CardTitle>
+      <pre className="bg-gray-100 p-4 rounded overflow-auto">
+        <code className="text-sm">
+          {`

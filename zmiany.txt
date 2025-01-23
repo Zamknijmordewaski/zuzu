@@ -1,0 +1,8 @@
+try:
+    response = requests.post(url, json=data)
+    if response.status_code == 200:
+        print(f"Zmieniono pasmo na {band}")
+    else:
+        print("Błąd zmiany pasma")
+except requests.exceptions.RequestException as e:
+    print(f"Błąd połączenia: {e}")
